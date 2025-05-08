@@ -1,0 +1,95 @@
+<!-- Aqui estamos criando a nossa caixa principal -->
+<div class="profile-card">
+    <!-- 
+        Aqui só vamos mostrar a imagem se o usuário tiver colocado um link de imagem.
+        Estamos fazendo essa verificação no *ngIf="profile.avatar"
+        -->
+    <div class="avatar-container" *ngIf="profile.avatar">
+        <img [src]="profile.avatar" alt="Profile Avatar" class="avatar">
+    </div>
+
+    <!-- 
+        Aqui temos o Cabeçalho do cartão
+        O botão mostra "Editar perfil" ou "Cancelar" dependendo do valor 
+        da variável isEditing:
+        isEditing = false → aparece "Editar perfil".
+        isEditing = true → aparece "Cancelar".
+    -->
+    <div class="profile-header">
+        <h2>Informações do perfil</h2>
+        <button class="edit-btn" (click)="isEditing = !isEditing">
+            {{ isEditing ? 'Cancelar' : 'Editar perfil' }}
+        </button>
+    </div>
+
+
+    <!-- 
+        Aqui temos as informações essas informações são para leitura
+        então ela só aparece se isEditing for falso, ou seja, quando não 
+        estiver editando.
+    -->
+    <div class="profile-info" *ngIf="!isEditing">
+        <p><strong>Name:</strong> {{ profile.name || 'não especificado' }}</p>
+        <p><strong>Age:</strong> {{ profile.age || 'não especificado' }}</p>
+        <p><strong>About:</strong> {{ profile.description || 'não especificado' }}</p>
+    </div>
+
+    <!-- 
+        Agora sim vamos ter a parte de edição, ele só aparece quando isEditing for verdadeiro 
+    -->
+    <div class="profile-form" *ngIf="isEditing">
+
+        <!-- 
+            Cada campo do formulário:
+            Mostra uma caixinha para digitar nesse caso o nome
+
+            [(ngModel)]="profile.name": Faz a conexão entre o campo de texto e o 
+            nome no objeto profile. Quando digita algo, o nome é atualizado 
+            automaticamente.
+
+            (ngModelChange)="onProfileChange()": Toda vez que o conteúdo muda, 
+            chama a função onProfileChange() para avisar ao componente principal 
+            que houve mudança.
+        -->
+        <div class="form-group">
+            <label for="name">Nome</label>
+            <input type="text" id="name" [(ngModel)]="profile.name" placeholder="Enter your name"
+                (ngModelChange)="onProfileChange()">
+        </div>
+
+        <!-- 
+            Mesma coisa, mas agora para a idade
+        -->
+        <div class="form-group">
+            <label for="age">Idade</label>
+            <input type="number" id="age" [(ngModel)]="profile.age" placeholder="Enter your age"
+                (ngModelChange)="onProfileChange()">
+        </div>
+
+        <!-- 
+            Mesma coisa, mas agora para sobre
+        -->
+        <div class="form-group">
+            <label for="description">Sobre</label>
+            <textarea id="description" [(ngModel)]="profile.description" placeholder="Tell us about yourself"
+                (ngModelChange)="onProfileChange()"></textarea>
+        </div>
+
+        <!-- 
+            Mesma coisa, mas agora para colocar o caminho ou link da imagem
+        -->
+        <div class="form-group">
+            <label for="avatar">Avatar URL</label>
+            <input type="url" id="avatar" [(ngModel)]="profile.avatar" placeholder="Enter avatar image URL"
+                (ngModelChange)="onProfileChange()">
+        </div>
+
+
+        <!-- 
+            Por fim o botão de Salvar alterações
+            Quando clica, fecha o modo de edição (volta para isEditing = false).
+        -->
+        <button class="save-btn" (click)="isEditing = false">Salvar alterações</button>
+    </div>
+
+</div>

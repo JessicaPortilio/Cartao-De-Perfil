@@ -1,0 +1,116 @@
+.profile-card { // Estiliza o container principal do cartão de perfil
+    max-width: 500px; // Largura máxima de 500px
+    margin: 2rem auto; // Espaço externo em cima e embaixo, e centraliza horizontalmente
+    padding: 2rem; // Espaço interno de 2rem em todos os lados
+    background-color: #ffffff; // Fundo branco
+    border-radius: 12px; // Cantos arredondados
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); // Sombra leve ao redor
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; // Fonte suave e moderna
+    color: #333; // Cor do texto padrão (um cinza escuro)
+
+    .avatar-container { // Container da imagem do avatar
+        text-align: center; // Centraliza o conteúdo (avatar)
+        margin-bottom: 1.5rem; // Espaço abaixo do avatar
+
+        .avatar { // Estilo da imagem do avatar
+            width: 120px; // Largura da imagem
+            height: 120px; // Altura da imagem
+            border-radius: 50%; // Deixa a imagem circular
+            object-fit: cover; // Corta a imagem para caber sem distorcer
+            border: 4px solid #f0f0f0; // Borda ao redor da imagem
+        }
+    }
+
+    .profile-header { // Cabeçalho da seção de perfil (título e botão)
+        display: flex; // Usa flexbox para alinhar elementos lado a lado
+        justify-content: space-between; // Espaço entre o título e o botão
+        align-items: center; // Alinha verticalmente ao centro
+        margin-bottom: 1.5rem; // Espaço abaixo do cabeçalho
+        border-bottom: 1px solid #eee; // Linha de divisão sutil
+        padding-bottom: 1rem; // Espaço abaixo dos elementos
+
+        h2 { // Estiliza o título "Profile Information"
+            margin: 0; // Remove espaçamento padrão
+            font-size: 1.5rem; // Tamanho do texto
+            color: #2c3e50; // Cor escura e elegante
+        }
+
+        .edit-btn { // Botão "Edit Profile" / "Cancel"
+            background-color: #3498db; // Azul forte de fundo
+            color: white; // Texto branco
+            border: none; // Sem borda
+            padding: 0.5rem 1rem; // Espaço interno
+            border-radius: 6px; // Cantos arredondados
+            cursor: pointer; // Muda o cursor ao passar por cima
+            transition: background-color 0.3s; // Transição suave de cor
+
+            &:hover { // Quando o mouse passa por cima do botão
+                background-color: #2980b9; // Azul mais escuro
+            }
+        }
+    }
+
+    .profile-info { // Seção com as informações exibidas do perfil
+        p { // Cada parágrafo (linha com nome, idade etc)
+            margin: 1rem 0; // Espaço acima e abaixo
+            font-size: 1rem; // Tamanho do texto
+            line-height: 1.6; // Espaçamento entre linhas
+
+            strong { // Parte em negrito (ex: "Name:")
+                color: #2c3e50; // Cor escura
+                margin-right: 0.5rem; // Espaço após o texto em negrito
+            }
+        }
+    }
+
+    .profile-form { // Formulário que aparece ao editar
+
+        .form-group { // Grupo de cada campo do formulário
+            margin-bottom: 1.2rem; // Espaço abaixo de cada grupo
+
+            label { // Texto descritivo do campo (ex: "Name")
+                display: block; // Força o texto a ocupar toda a linha
+                margin-bottom: 0.5rem; // Espaço abaixo do texto
+                font-weight: 600; // Deixa mais grosso que o normal
+                color: #2c3e50; // Cor escura
+            }
+
+            input, // Estilo dos campos de entrada
+            textarea { // Estilo da área de texto (campo "About")
+                width: 100%; // Ocupa toda a largura do container
+                padding: 0.8rem; // Espaço interno
+                border: 1px solid #ddd; // Borda cinza clara
+                border-radius: 6px; // Cantos arredondados
+                font-size: 1rem; // Tamanho da fonte
+                transition: border-color 0.3s; // Suaviza a mudança de cor da borda
+
+                &:focus { // Quando o campo está sendo editado
+                    outline: none; // Remove borda padrão
+                    border-color: #3498db; // Muda a cor da borda para azul
+                    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2); // Adiciona brilho azul claro
+                }
+            }
+
+            textarea { // Especificamente para a área de texto
+                min-height: 100px; // Altura mínima
+                resize: vertical; // Só permite redimensionar verticalmente
+            }
+        }
+
+        .save-btn { // Botão "Salvar mudanças"
+            background-color: #2ecc71; // Verde vivo de fundo
+            color: white; // Texto branco
+            border: none; // Sem borda
+            padding: 0.7rem 1.5rem; // Espaço interno
+            border-radius: 6px; // Cantos arredondados
+            font-size: 1rem; // Tamanho do texto
+            cursor: pointer; // Muda o cursor ao passar por cima
+            transition: background-color 0.3s; // Transição suave
+            width: 100%; // Ocupa toda a largura do container
+
+            &:hover { // Ao passar o mouse
+                background-color: #27ae60; // Verde mais escuro
+            }
+        }
+    }
+}
