@@ -79,9 +79,11 @@ export class AppComponent {
     console.log('Perfil atualizado', updatedProfile);
   }
 }
-
+```
 ### Componente Pai (exemplo)
+```typescript
 <app-cartao-de-perfil 
   [profile]="userProfile" 
   (profileChange)="onProfileChange($event)">
 </app-cartao-de-perfil>
+```
