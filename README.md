@@ -1,59 +1,87 @@
-# CartaoDePerfil
+# Cartão de Perfil - Angular
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.6.
+Este projeto contém um componente `CartaoDePerfil` em Angular que exibe um cartão de perfil de usuário com informações editáveis, incluindo nome, idade, descrição e avatar. Ele permite que o usuário edite as informações e as salve, além de enviar as atualizações de volta para o componente pai.
 
-## Development server
+## Funcionalidades
 
-To start a local development server, run:
+* **Exibição do perfil**: O componente exibe as informações de nome, idade, descrição e avatar.
+* **Modo de edição**: O usuário pode alternar entre o modo de visualização e o modo de edição.
+* **Edição**: No modo de edição, o usuário pode alterar o nome, idade, descrição e avatar.
+* **Emissão de mudanças**: Ao editar qualquer campo, as alterações são enviadas para o componente pai.
+* **Avatar condicional**: O avatar será exibido somente se um link válido for fornecido.
 
-```bash
-ng serve
-```
+## Estrutura do Componente
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+O componente possui dois modos:
 
-## Code scaffolding
+1. **Modo de Visualização**: Exibe as informações do perfil como texto estático.
+2. **Modo de Edição**: Permite a edição das informações do perfil em campos de texto.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+### Componentes
 
-```bash
-ng generate component component-name
-```
+#### `cartao-de-perfil.component.html`
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Este arquivo contém o layout do cartão de perfil, com seções para o cabeçalho, informações do perfil, formulário de edição e botão de salvar.
 
-```bash
-ng generate --help
-```
+#### `cartao-de-perfil.component.scss`
 
-## Building
+Este arquivo contém os estilos para o componente, incluindo a formatação do cartão de perfil, os campos de entrada e os botões de edição e salvar.
 
-To build the project run:
+#### `cartao-de-perfil.component.ts`
 
-```bash
-ng build
-```
+Este arquivo contém a lógica do componente, incluindo a inicialização de dados, controle do estado de edição e a emissão de mudanças para o componente pai.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+### Funcionalidade de Edição
 
-## Running unit tests
+* **Editar Perfil**: Ao clicar no botão "Editar perfil", o modo de edição é ativado.
+* **Cancelar**: O botão de "Cancelar" retorna ao modo de visualização sem salvar as alterações.
+* **Salvar Alterações**: O botão "Salvar alterações" envia as atualizações para o componente pai.
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+### Inputs e Outputs
 
-```bash
-ng test
-```
+* **Input**: Recebe os dados do perfil (nome, idade, descrição e avatar) do componente pai.
+* **Output**: Emite os dados atualizados para o componente pai quando houver uma alteração.
 
-## Running end-to-end tests
+## Instalação
 
-For end-to-end (e2e) testing, run:
+1. Clone o repositório em sua máquina.
+2. Execute `npm install` para instalar as dependências do Angular.
+3. Execute `ng serve` para rodar o aplicativo localmente.
 
-```bash
-ng e2e
-```
+## Exemplos de Uso
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+Para usar o componente `CartaoDePerfil` em um componente pai:
 
-## Additional Resources
+### Componente Pai (exemplo)
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+```typescript
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  template: `
+    <app-cartao-de-perfil 
+      [profile]="userProfile" 
+      (profileChange)="onProfileChange($event)">
+    </app-cartao-de-perfil>
+  `
+})
+export class AppComponent {
+  userProfile = {
+    name: 'Jessica Portilio',
+    age: 30,
+    description: 'Desenvolvedora Angular',
+    avatar: 'https://www.example.com/avatar.jpg'
+  };
+
+  onProfileChange(updatedProfile: any) {
+    this.userProfile = updatedProfile;
+    console.log('Perfil atualizado', updatedProfile);
+  }
+}
+
+### Componente Pai (exemplo)
+<app-cartao-de-perfil 
+  [profile]="userProfile" 
+  (profileChange)="onProfileChange($event)">
+</app-cartao-de-perfil>
