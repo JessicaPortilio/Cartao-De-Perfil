@@ -1,4 +1,10 @@
-# Cartão de Perfil - Angular
+<div align="center">
+  <h1>Cartão de Perfil - Angular</h1> 
+</div>
+
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/a2fff649-3e3f-4591-8f52-804cf55b9162" >
+</div>
 
 Este projeto contém um componente `CartaoDePerfil` em Angular que exibe um cartão de perfil de usuário com informações editáveis, incluindo nome, idade, descrição e avatar. Ele permite que o usuário edite as informações e as salve, além de enviar as atualizações de volta para o componente pai.
 
