@@ -18,7 +18,16 @@ Este projeto contém um componente `CartaoDePerfil` em Angular que exibe um cart
 O componente possui dois modos:
 
 1. **Modo de Visualização**: Exibe as informações do perfil como texto estático.
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/a2fff649-3e3f-4591-8f52-804cf55b9162" >
+</div>
+
 2. **Modo de Edição**: Permite a edição das informações do perfil em campos de texto.
+
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/f0306659-b8ec-42fe-b34e-e519527a2c97" >
+</div>
+
 
 ### Componentes
 
@@ -91,10 +100,6 @@ export class AppComponent {
 </app-cartao-de-perfil>
 ```
 
-<div align="center">
-  <h1>📷 Demonstração Visual</h1> 
-  <img src="https://github.com/user-attachments/assets/a2fff649-3e3f-4591-8f52-804cf55b9162" >
-  <img src="https://github.com/user-attachments/assets/f0306659-b8ec-42fe-b34e-e519527a2c97" >
-</div>
+
 
 
